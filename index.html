@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart DK Classes</title>
+  <style>
+    body {margin:0;font-family:Arial,sans-serif;background:#f4f6f9;}
+    header {background:#0a4275;color:white;padding:15px;display:flex;justify-content:space-between;align-items:center;}
+    header .logo-section {display:flex;align-items:center;}
+    header img {height:50px;width:50px;border-radius:50%;margin-right:10px;}
+    header h1 {margin:0;font-size:22px;}
+    nav ul {list-style:none;margin:0;padding:0;display:flex;}
+    nav ul li {margin:0 10px;}
+    nav ul li a {color:white;text-decoration:none;font-weight:bold;}
+    nav ul li a:hover{text-decoration:underline;}
+    .container {padding:20px;}
+    .profile-section {text-align:center;margin-bottom:30px;}
+    .profile-section img {height:120px;width:120px;border-radius:50%;margin-bottom:10px;}
+    .section {background:white;margin-bottom:20px;padding:20px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+    .video-list {display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;}
+    iframe {width:100%;border-radius:8px;}
+    footer {background:#0a4275;color:white;padding:20px;text-align:center;}
+    footer a {color:#f9d342;text-decoration:none;}
+    .auth-links {margin-top:10px;}
+    .auth-links a {margin:0 10px;color:#0a4275;cursor:pointer;text-decoration:underline;}
+    .modal {display:none;position:fixed;z-index:1;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:rgba(0,0,0,0.6);}
+    .modal-content {background-color:#fff;margin:10% auto;padding:20px;border-radius:8px;width:90%;max-width:400px;box-shadow:0 2px 10px rgba(0,0,0,0.3);}
+    .modal-content h2 {margin-top:0;}
+    .close {float:right;font-size:22px;font-weight:bold;cursor:pointer;}
+    input[type=text], input[type=password], input[type=email] {width:100%;padding:8px;margin:8px 0;border:1px solid #ccc;border-radius:5px;}
+    button {background:#0a4275;color:white;padding:10px;border:none;border-radius:5px;cursor:pointer;}
+    button:hover {background:#06345a;}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-section">
+    <img src="logo.jpg" alt="Logo">
+    <h1>Smart DK Classes</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#home">होम</a></li>
+      <li><a href="#videos">वीडियो</a></li>
+      <li><a href="#books">NCERT किताबें</a></li>
+      <li><a href="#current">करेंट अफेयर्स</a></li>
+      <li><a href="#login">लॉगिन</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="profile-section">
+    <img src="myphoto.png" alt="My Photo">
+    <h2>Devendra Kumar</h2>
+    <p>Founder & Educator - Smart DK Classes</p>
+  </div>
+
+  <section class="section" id="home">
+    <h2>स्वागत है</h2>
+    <p>Smart DK Classes वेबसाइट पर आपका स्वागत है। यहाँ आपको वीडियो लेक्चर्स, NCERT किताबें और करंट अफेयर्स की जानकारी मिलेगी।</p>
+  </section>
+
+  <section class="section" id="videos">
+    <h2>YouTube वीडियो</h2>
+    <div class="video-list">
+      <iframe height="200" src="https://www.youtube.com/embed/VIDEO_ID1" frameborder="0" allowfullscreen></iframe>
+      <iframe height="200" src="https://www.youtube.com/embed/VIDEO_ID2" frameborder="0" allowfullscreen></iframe>
+      <iframe height="200" src="https://www.youtube.com/embed/VIDEO_ID3" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section class="section" id="books">
+    <h2>NCERT किताबें</h2>
+    <p><a href="#">क्लास 6 से 12 तक की किताबें डाउनलोड करें</a></p>
+  </section>
+
+  <section class="section" id="current">
+    <h2>करेंट अफेयर्स</h2>
+    <ul>
+      <li>भारत ने चंद्रयान-3 का सफल प्रक्षेपण किया।</li>
+      <li>G20 सम्मेलन भारत में आयोजित हुआ।</li>
+      <li>नए शिक्षा नीति 2023 लागू की गई।</li>
+    </ul>
+  </section>
+
+  <section class="section" id="login">
+    <h2>लॉगिन</h2>
+    <form>
+      <label>यूज़रनेम:</label><br>
+      <input type="text" name="username" required><br><br>
+      <label>पासवर्ड:</label><br>
+      <input type="password" name="password" required><br><br>
+      <button type="submit">लॉगिन</button>
+    </form>
+    <div class="auth-links">
+      <a onclick="openModal('registerModal')">Register</a>
+      <a onclick="openModal('forgotModal')">Forgot Password?</a>
+    </div>
+  </section>
+</div>
+
+<!-- Register Modal -->
+<div id="registerModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('registerModal')">&times;</span>
+    <h2>Register</h2>
+    <form id="registerForm">
+      <label>नाम:</label>
+      <input type="text" name="fullname" required><br>
+      <label>मोबाइल:</label>
+      <input type="text" name="mobile" required><br>
+      <label>ईमेल:</label>
+      <input type="email" name="email" required><br>
+      <label>पासवर्ड:</label>
+      <input type="password" name="password" required><br>
+      <button type="submit">Register</button>
+    </form>
+  </div>
+</div>
+
+<!-- Forgot Password Modal -->
+<div id="forgotModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('forgotModal')">&times;</span>
+    <h2>Forgot Password</h2>
+    <form>
+      <label>ईमेल:</label>
+      <input type="email" required>
+      <button type="submit">पासवर्ड रीसेट करें</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <p>📧 Email: smartdkclasses@gmail.com | 📞 Phone: +91-9876543210</p>
+  <p>संपर्क करें: <a href="https://www.youtube.com/@SmartDKClasses" target="_blank">YouTube Channel</a></p>
+  <p>&copy; 2025 Smart DK Classes. All Rights Reserved.</p>
+</footer>
+
+<script>
+  function openModal(id){document.getElementById(id).style.display='block';}
+  function closeModal(id){document.getElementById(id).style.display='none';}
+  window.onclick = function(event){if(event.target.classList.contains('modal')){event.target.style.display='none';}}
+
+  // Register form demo save in localStorage
+  const registerForm = document.getElementById('registerForm');
+  registerForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const fullname = this.fullname.value;
+    const mobile = this.mobile.value;
+    const email = this.email.value;
+    const password = this.password.value;
+    let users = JSON.parse(localStorage.getItem('users') || '[]');
+    if(users.find(u=>u.email===email)){
+      alert('यह ईमेल पहले से मौजूद है'); return;
+    }
+    users.push({fullname,mobile,email,password});
+    localStorage.setItem('users', JSON.stringify(users));
+    alert('रजिस्ट्रेशन सफल!');
+    closeModal('registerModal');
+    registerForm.reset();
+  });
+</script>
+
+</body>
+</html>
